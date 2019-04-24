@@ -5,8 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AosrSber"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+         Title="AOCP" Height="200" MinWidth="600" ResizeMode="CanMinimize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" Cursor="Hand">
+    <Window.Resources>
+        <ControlTemplate TargetType="Button" x:Key="btTemplate">
+            <Border CornerRadius="3" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}">
+                <ContentControl Margin="{TemplateBinding Margin}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}" Content="{TemplateBinding Content}"/>
+            </Border>
+        </ControlTemplate>
+    </Window.Resources>
+    <Grid Margin="2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45*"></RowDefinition>
+            <RowDefinition Height="11*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label x:Name="label" Content="Текст" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0" Margin="376,0" Height="26" Width="38"/>
+        <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="0" Margin="5">
+            <DockPanel LastChildFill="False" VerticalAlignment="Center" Margin="25 25 25 5">
+                <Label DockPanel.Dock="Left" Content="File Name" VerticalAlignment="Center"/>
+                <TextBox x:Name="FileNameTextBox" DockPanel.Dock="Right" VerticalAlignment="Center" MinWidth="500"/>
+            </DockPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="5">
+            <DockPanel LastChildFill="False">
+                <Button x:Name="ExitBtn" Template="{StaticResource btTemplate}" HorizontalAlignment="Center" DockPanel.Dock="Right" Content="Закрыть" Margin="15 0 15 0" MinWidth="70" Click="ExitBtn_Click"></Button>
+                <Button x:Name="CancelBtn" Template="{StaticResource btTemplate}" HorizontalContentAlignment="Center" DockPanel.Dock="Right" Content="Отмена" Margin="15 0 15 0" MinWidth="70" Click="CancelBtn_Click"></Button>
+                <Button x:Name="DirectoryBtn" Template="{StaticResource btTemplate}" HorizontalContentAlignment="Center" DockPanel.Dock="Left" Content="Выбор папки" Margin="15 0 15 0" MinWidth="60" Click="DirectoryBtn_Click"></Button>
+                <Button x:Name="FileBtn" Template="{StaticResource btTemplate}" HorizontalContentAlignment="Center" DockPanel.Dock="Left" Content="Выбор файла" Margin="15 0 15 0" MinWidth="60" Click="FileBtn_Click"></Button>
+            </DockPanel>
+        </StackPanel>
+
     </Grid>
 </Window>
